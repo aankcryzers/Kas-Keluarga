@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Keuangan Keluarga</title>
+    <!-- Menghubungkan ke Manifest PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    
+    <style>
+        /* CSS agar iframe penuh tanpa scrollbar ganda */
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #f3f4f6; }
+        iframe { border: none; width: 100%; height: 100%; display: block; }
+    </style>
+</head>
+<body>
+
+    <!-- BUNGKUS GOOGLE SCRIPT DI SINI -->
+    <iframe src="https://script.google.com/macros/s/AKfycbxurbC1x2e2H4GOCJ7f2s6oUXkYh8OIr8R-os_KWlVE2dR8qCI78fz42sAQvnb3Hn_T/exec" allow="camera"></iframe>
+
+    <script>
+        // Mendaftarkan Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('Service Worker Terdaftar!', reg))
+                    .catch(err => console.error('Gagal mendaftar Service Worker', err));
+            });
+        }
+    </script>
+</body>
+</html>
